@@ -1,0 +1,54 @@
+
+#############################################################################
+# ABOUT
+#############################################################################
+
+During security penetration testing you may find web proxies, or 
+web servers that will proxy connections. Like any red blooded 
+penetration tester I set about testing for connections through 
+the proxy, for example I’ll telnet to the proxy port a try stuff like;
+
+CONNECT localhost:22 HTTP/1.1\n\n
+
+- and -
+
+GET HTTP://some-other-host/ HTTP/1.1\n\n
+
+I couldn’t find a tool that would scan for hosts and ports through 
+a web proxy, so I wrote one. This tool takes the leg work out of 
+testing for connections through a proxy.
+
+
+#############################################################################
+# INSTALL
+#############################################################################
+
+proxyScan.pl should run on most systems with Perl installed.
+
+Requirements:
+
+Perl - www.perl.org
+LWP  - cpan.org
+
+You can check your Perl install with 
+	"perl -wc proxyScan.pl"
+
+If you receive an error like this; 
+	Can't locate LWP/UserAgent.pm in @INC (@INC contains: ...
+
+you will need to install the LWP Perl module. This can be installed using
+the Perl CPAN shell with the following command.
+	"perl -MCPAN -e shell"
+
+Run through the initial setup if needed and install LWP with
+	"install LWP"
+
+
+#############################################################################
+# USAGE
+#############################################################################
+
+run "perl proxyScan.pl -h" to see the usage options.
+
+
+
